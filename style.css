@@ -1,0 +1,151 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3,#ffb6c1);
+    animation:bgMove 8s infinite alternate;
+}
+
+@keyframes bgMove{
+    0%{
+        background-position:left;
+    }
+    100%{
+        background-position:right;
+    }
+}
+
+.container{
+    width:90%;
+    max-width:380px;
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(12px);
+    border-radius:25px;
+    padding:35px 25px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.2);
+    animation:popup .8s ease;
+}
+
+@keyframes popup{
+    from{
+        transform:scale(.5);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+h1{
+    color:#fff;
+    font-size:30px;
+    margin-bottom:20px;
+    animation:glow 2s infinite;
+}
+
+@keyframes glow{
+    0%,100%{
+        text-shadow:0 0 10px white;
+    }
+    50%{
+        text-shadow:0 0 25px red;
+    }
+}
+
+.text{
+    color:#fff;
+    font-size:18px;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.text span{
+    color:yellow;
+    font-weight:bold;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    position:relative;
+}
+
+button{
+    border:none;
+    padding:14px 30px;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+#yesBtn{
+    background:#ff1744;
+    color:#fff;
+}
+
+#yesBtn:hover{
+    transform:scale(1.1);
+}
+
+#noBtn{
+    background:#fff;
+    color:#ff1744;
+    position:relative;
+}
+
+#result{
+    margin-top:30px;
+    color:#fff;
+    font-size:22px;
+    font-weight:bold;
+}
+
+/* Floating Hearts */
+
+.hearts{
+    position:fixed;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    top:0;
+    left:0;
+    pointer-events:none;
+}
+
+.hearts::before,
+.hearts::after{
+    content:"❤️ ❤️ 💖 💕 💗 💘";
+    position:absolute;
+    font-size:30px;
+    animation:heartMove 12s linear infinite;
+    opacity:.5;
+}
+
+.hearts::after{
+    left:60%;
+    animation-duration:16s;
+}
+
+@keyframes heartMove{
+    0%{
+        transform:translateY(100vh);
+    }
+    100%{
+        transform:translateY(-120vh);
+    }
+}
