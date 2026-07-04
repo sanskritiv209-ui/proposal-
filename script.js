@@ -1,76 +1,52 @@
-// Buttons
-const yesBtn = document.getElementById("yesBtn");
-const noBtn = document.getElementById("noBtn");
-const result = document.getElementById("result");
+// ================= SCREENS =================
 
-// YES Button
-yesBtn.addEventListener("click", () => {
+const startScreen = document.getElementById("startScreen");
+const screen1 = document.getElementById("screen1");
+const screen2 = document.getElementById("screen2");
+const finalScreen = document.getElementById("finalScreen");
 
-    result.innerHTML = `
-    💖 Yayyy!! 💖<br><br>
-    I Promise To Love You Forever ❤️🥹
-    `;
+// ================= BUTTONS =================
 
-    createHearts();
+const openBtn = document.getElementById("openBtn");
+
+const yes1 = document.getElementById("yes1");
+const no1 = document.getElementById("no1");
+
+const yes2 = document.getElementById("yes2");
+const no2 = document.getElementById("no2");
+
+// ================= OPEN BUTTON =================
+
+openBtn.addEventListener("click", () => {
+
+    startScreen.classList.add("hide");
+    screen1.classList.remove("hide");
+
 });
 
-// NO Button (Run Away)
-noBtn.addEventListener("touchstart", moveButton);
-noBtn.addEventListener("mouseover", moveButton);
+// ================= FIRST YES =================
 
-function moveButton(){
+yes1.addEventListener("click", () => {
 
-    const maxX = window.innerWidth - noBtn.offsetWidth - 20;
-    const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+    screen1.classList.add("hide");
+    screen2.classList.remove("hide");
 
-    const x = Math.random() * maxX;
-    const y = Math.random() * maxY;
+});
 
-    noBtn.style.position = "fixed";
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-}
+// ================= SECOND YES =================
 
-// Floating Hearts on YES
-function createHearts(){
+yes2.addEventListener("click", () => {
 
-    for(let i=0;i<40;i++){
+    screen2.classList.add("hide");
+    finalScreen.classList.remove("hide");
 
-        const heart = document.createElement("div");
+    heartBurst();
 
-        heart.innerHTML = "❤️";
-        heart.style.position = "fixed";
-        heart.style.left = Math.random()*100 + "vw";
-        heart.style.top = "100vh";
-        heart.style.fontSize = (20 + Math.random()*25) + "px";
-        heart.style.pointerEvents = "none";
-        heart.style.animation = "love 4s linear forwards";
+});
 
-        document.body.appendChild(heart);
+// ================= RUN AWAY BUTTON =================
 
-        setTimeout(()=>{
-            heart.remove();
-        },4000);
-    }
-}
+function moveButton(btn){
 
-// Heart Animation
-const style = document.createElement("style");
-
-style.innerHTML = `
-@keyframes love{
-
-0%{
-transform:translateY(0) scale(1);
-opacity:1;
-}
-
-100%{
-transform:translateY(-120vh) scale(1.8) rotate(360deg);
-opacity:0;
-}
-
-}
-`;
-
-document.head.appendChild(style);
+    const maxX = window.innerWidth - btn.offsetWidth - 30;
+    const maxY = window.innerHeight - btn.offsetHeight - 30
