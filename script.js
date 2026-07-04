@@ -1,138 +1,142 @@
-// ================= SCREENS =================
+
+// ========= SCREENS =========
 
 const startScreen = document.getElementById("startScreen");
 const screen1 = document.getElementById("screen1");
 const screen2 = document.getElementById("screen2");
 const finalScreen = document.getElementById("finalScreen");
 
-// ================= BUTTONS =================
+// ========= BUTTONS =========
 
 const openBtn = document.getElementById("openBtn");
+
 const yes1 = document.getElementById("yes1");
 const no1 = document.getElementById("no1");
+
 const yes2 = document.getElementById("yes2");
 const no2 = document.getElementById("no2");
 
-// ================= OPEN =================
+// ========= OPEN =========
 
-openBtn.onclick = function () {
+openBtn.onclick = () => {
     startScreen.classList.add("hide");
     screen1.classList.remove("hide");
 };
 
-// ================= YES 1 =================
+// ========= FIRST YES =========
 
-yes1.onclick = function () {
+yes1.onclick = () => {
     screen1.classList.add("hide");
     screen2.classList.remove("hide");
 };
 
-// ================= YES 2 =================
+// ========= SECOND YES =========
 
-yes2.onclick = function () {
+yes2.onclick = () => {
     screen2.classList.add("hide");
     finalScreen.classList.remove("hide");
+
     heartBurst();
 };
 
-// ================= RUN AWAY BUTTON =================
+// ========= RUN AWAY BUTTON =========
 
-function moveButton(button){
+function moveButton(btn){
 
-    let x = Math.random() * (window.innerWidth - button.offsetWidth - 20);
+    const x = Math.random() * (window.innerWidth - btn.offsetWidth - 20);
 
-    let y = Math.random() * (window.innerHeight - button.offsetHeight - 20);
+    const y = Math.random() * (window.innerHeight - btn.offsetHeight - 20);
 
-    button.style.position = "fixed";
-    button.style.left = x + "px";
-    button.style.top = y + "px";
+    btn.style.position = "fixed";
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
 }
 
 // Desktop
 
-no1.addEventListener("mouseenter",function(){
-    moveButton(no1);
-});
-
-no2.addEventListener("mouseenter",function(){
-    moveButton(no2);
-});
+no1.addEventListener("mouseenter",()=>moveButton(no1));
+no2.addEventListener("mouseenter",()=>moveButton(no2));
 
 // Mobile
 
-no1.addEventListener("touchstart",function(e){
-    e.preventDefault();
-    moveButton(no1);
+no1.addEventListener("touchstart",(e)=>{
+e.preventDefault();
+moveButton(no1);
 });
 
-no2.addEventListener("touchstart",function(e){
-    e.preventDefault();
-    moveButton(no2);
+no2.addEventListener("touchstart",(e)=>{
+e.preventDefault();
+moveButton(no2);
 });
 
-// ================= FLOATING HEARTS =================
+// ========= HEARTS =========
 
-const hearts = document.querySelector(".hearts");
+const hearts=document.querySelector(".hearts");
 
-setInterval(function(){
+setInterval(()=>{
 
-    const heart = document.createElement("span");
+const heart=document.createElement("span");
 
-    heart.innerHTML = "❤️";
+heart.innerHTML="❤️";
 
-    heart.style.left = Math.random()*100 + "vw";
+heart.style.left=Math.random()*100+"vw";
 
-    heart.style.animationDuration = (4 + Math.random()*4) + "s";
+heart.style.animationDuration=(4+Math.random()*4)+"s";
 
-    hearts.appendChild(heart);
+heart.style.fontSize=(18+Math.random()*18)+"px";
 
-    setTimeout(function(){
-        heart.remove();
-    },8000);
+hearts.appendChild(heart);
 
-},400);
+setTimeout(()=>{
 
-// ================= HEART BURST =================
+heart.remove();
+
+},8000);
+
+},350);
+
+// ========= HEART BURST =========
 
 function heartBurst(){
 
-    for(let i=0;i<40;i++){
+for(let i=0;i<40;i++){
 
-        const heart = document.createElement("div");
+const heart=document.createElement("div");
 
-        heart.innerHTML = "💖";
+heart.innerHTML="💖";
 
-        heart.style.position = "fixed";
-        heart.style.left = Math.random()*100 + "vw";
-        heart.style.top = "100vh";
-        heart.style.fontSize = (20 + Math.random()*20) + "px";
-        heart.style.pointerEvents = "none";
-        heart.style.animation = "burst 4s linear forwards";
+heart.style.position="fixed";
+heart.style.left=Math.random()*100+"vw";
+heart.style.top="100vh";
+heart.style.fontSize=(20+Math.random()*25)+"px";
+heart.style.pointerEvents="none";
+heart.style.animation="burst 4s linear forwards";
 
-        document.body.appendChild(heart);
+document.body.appendChild(heart);
 
-        setTimeout(function(){
-            heart.remove();
-        },4000);
-
-    }
+setTimeout(()=>{
+heart.remove();
+},4000);
 
 }
 
-// ================= BURST CSS =================
+}
 
-const style = document.createElement("style");
+const style=document.createElement("style");
 
-style.innerHTML = `
+style.innerHTML=`
 @keyframes burst{
+
 0%{
 transform:translateY(0) scale(1);
 opacity:1;
 }
+
 100%{
 transform:translateY(-120vh) scale(2) rotate(360deg);
 opacity:0;
 }
+
 }
 `;
 
