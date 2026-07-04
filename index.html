@@ -1,57 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will You Be My Girlfriend? ❤️</title>
 
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Boyfriend ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-<!-- Start Screen -->
-<div id="startScreen">
-    <h1>Hey 👋</h1>
-    <p>Open This ❤️</p>
 
-    <button id="startBtn">
-        Open 💖
-    </button>
-</div>
+<!-- Floating Hearts -->
+<div class="hearts"></div>
 
-    <!-- Floating Hearts -->
-    <div class="hearts"></div>
+<!-- ================= START SCREEN ================= -->
 
-    <!-- Proposal Card -->
-    <div class="container">
+<div id="startScreen" class="screen">
 
-        <h1>Will You Be My Girlfriend? ❤️</h1>
+    <div class="card">
 
-        <p class="text">
-            Dear <span>Sanskriti</span>,
-            <br><br>
-            Every moment with you feels magical.
-            You make my life beautiful.
-            <br><br>
-            Will you be mine forever? 💖
+        <h1>Hey 👋</h1>
+
+        <p class="subtitle">
+            I Have Something Special For You ❤️
         </p>
 
-        <div class="buttons">
+        <button id="openBtn">
+            Open This 💌
+        </button>
 
-            <button id="yesBtn">
+    </div>
+
+</div>
+
+<!-- ================= QUESTION 1 ================= -->
+
+<div id="screen1" class="screen hide">
+
+    <div class="card">
+
+        <h1>Dear Boyfriend ❤️</h1>
+
+        <p class="question">
+
+            Every Moment With You Feels Like A Beautiful Dream.
+
+            <br><br>
+
+            Will You Be Mine Forever? 💖
+
+        </p>
+
+        <div class="btnBox">
+
+            <button id="yes1">
                 Yes ❤️
             </button>
 
-            <button id="noBtn">
+            <button id="no1">
                 No 😅
             </button>
 
         </div>
 
-        <div id="result"></div>
+    </div>
+
+</div>
+
+<!-- ================= QUESTION 2 ================= -->
+
+<div id="screen2" class="screen hide">
+
+    <div class="card">
+
+        <h1>One More Question 🥺</h1>
+
+        <p class="question">
+
+            Now That We've Agreed To Be Together Forever...
+
+            <br><br>
+
+            I Have One More Question For You.
+
+            <br><br>
+
+            Will You Go On A Date With Me? 🌹❤️
+
+        </p>
+
+        <div class="btnBox">
+
+            <button id="yes2">
+                Yes 💖
+            </button>
+
+            <button id="no2">
+                No 🙈
+            </button>
+
+        </div>
 
     </div>
 
-    <script src="script.js"></script>
+</div>
+
+<!-- ================= FINAL SCREEN ================= -->
+
+<div id="finalScreen" class="screen hide">
+
+    <div class="card">
+
+        <h1>Yayyyy!! ❤️🥹</h1>
+
+        <p class="question">
+
+            You Just Made Me The Happiest Person Alive.
+
+            <br><br>
+
+            I Can't Wait To Make Beautiful Memories With You.
+
+            <br><br>
+
+            I Love You Forever. ❤️✨
+
+        </p>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
